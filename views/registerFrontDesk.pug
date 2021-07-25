@@ -1,0 +1,28 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Register Front Desk Officer  
+    form(method="POST" action='/register')
+        div.form-row
+            div.col.form-group
+                label First name 
+                input.form-control(name="firstname")
+            div.col.form-group
+                label Last name
+                input.form-control(name="lastname")
+            div.col.form-group
+                label User name
+                input.form-control(name="username")
+        div.form-row
+            div.col.form-group
+                label Create Password
+                input.form-control(type="password" name="password")
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block Register
+        div.form-row
+            div.col.form-group
+                a(href='/login') Login
+            div.pull-right
+                a(class='button', href='/') Home Page
+        

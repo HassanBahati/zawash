@@ -1,0 +1,53 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Welcome 
+    div.form-row
+        div.col.form-group
+            a(href='/employee/createEmployee')  Add New Employee
+        div.pull-right
+        a(href='/order')  View Order List
+    div.form-row
+        div.col.form-group.col-md-12   
+            form.search(action='/employee/employeeList')
+                div.form-row
+                    div.col-md-8
+                        input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
+                    div.col-md-4
+                        input.btn.btn-dark.btn-block(type="submit")
+    table.table
+        thead.thead-dark
+            tr
+                th Full Name 
+                th NIN
+                th Gender
+                th Past incidences
+                th Role
+                th
+                th
+        tbody
+            if users.length
+            each user in users
+                tr
+                    td #{user.lastname +' '+ user.firstname}
+                    td #{user.nin}
+                    td #{user.gender}
+                    td #{user.pastincidence}
+                    td #{user.role}
+                    td
+                        a(href='/employee/update/'+user._id) Update 
+                    td
+                        form(method="post" action='/employee/delete')
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+    div.form-row
+        div.pull-right
+            a(class='button', href='/') Home Page
+    div.form-row
+        div.pull-right
+            a(class='button', href='/') Home Page
+        div.pull-left
+            form(method="post" action='/logout') 
+                button.btn.btn-dark.btn-block(type="submit") Log out
+
+                

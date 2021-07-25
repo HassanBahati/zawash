@@ -1,0 +1,53 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Add Employee (Driver or Conductor) 
+    form(method="POST" action='/employee/createEmployee' enctype="multipart/form-data")
+        div.form-row
+            div.col.form-group
+                label First name 
+                input.form-control(name="firstname")
+            div.col.form-group
+                label Last name
+                input.form-control(name="lastname")
+            div.col.form-group
+                label User name
+                input.form-control(name="username")
+        div.form-row
+            div.col.form-group
+                label Gender
+                div 
+                    label.form-check.form-check-inline
+                        input.form-check-input(type="radio" name="gender" value="female")
+                        span.form-check-label Female 
+                    label.form-check.form-check-inline
+                    input.form-check-input(type="radio" name="gender" value="male")
+                    span.form-check-label Male 
+            div.col.form-group
+                label Past incidences 
+                div
+                    label.form-check.form-check-inline 
+                        span.form-check-label accidents    &nbsp
+                        input.form-check-input(type="checkbox" checked name="pastincidences" value="accidents")
+                    label.form-check.form-check-inline 
+                        span.form-check-label fights   &nbsp
+                        input.form-check-input(type="checkbox" checked name="pastincidences" value="fights")
+                    label.form-check.form-check-inline 
+                        span.form-check-label fuel thefts &nbsp
+                    input.form-check-input(type="checkbox" checked name="pastincidences" value="fuelthefts")
+        div.form-row
+            div.col.form-group
+                label Upload image
+                input(type='file', name='imageupload')
+            div.col.form-group
+                label Role 
+                select.form-control(name="role")
+                    option(value="driver")  Driver
+                    option(value="conductor") Conductor
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block Register Employee
+        div.form-row
+            div.pull-right
+                a(class='button', href='/employee') Employee List
+                
